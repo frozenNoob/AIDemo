@@ -1,0 +1,22 @@
+wb:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: wb_ai
+    username: root
+    password: 1234
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5tRSrCtJCn3gicN18qbn
+    access-key-secret: Axr6qrlzFIjO3FOQqnuqvoeQFa8SlF
+    bucket-name: wb-take-out-cwj333
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 1
+
+deepseek:
+  api:
+    token: sk-36a7886474a44be7bd9ac95fabf9b08f

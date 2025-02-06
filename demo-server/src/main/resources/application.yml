@@ -1,0 +1,67 @@
+server:
+  port: 8080
+
+spring:
+  #  废物用profile导入，根本没用
+  #  profiles:
+  #    active: dev
+  #  正确的导入作法
+  config:
+    import: classpath:application-dev.yml
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${wb.datasource.driver-class-name}
+      url: jdbc:mysql://${wb.datasource.host}:${wb.datasource.port}/${wb.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${wb.datasource.username}
+      password: ${wb.datasource.password}
+  redis:
+    host: ${wb.redis.host}
+    port: ${wb.redis.port}
+    password: ${wb.redis.password}
+    database: ${wb.redis.database}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  #  比如你的配置是 typeAliasesPackage: com.wb.entity。
+  #  这意味着 MyBatis 会扫描指定的包路径 com.wb.entity，并将这个包中的所有实体类注册为别名，
+  #  注册后你就可以在 MyBatis 的映射文件（.xml）中直接使用实体类的类名而不需要写全路径的类名。
+  type-aliases-package: com.wb.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      wb:
+        mapper: debug
+        service: info
+        controller: info
+
+wb:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: itcast
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: token
+  #    user-token-name: authentication
+  alioss:
+    endpoint: ${wb.alioss.endpoint}
+    access-key-id: ${wb.alioss.access-key-id}
+    access-key-secret: ${wb.alioss.access-key-secret}
+    bucket-name: ${wb.alioss.bucket-name}
+  shop:
+    address: 北京市海淀区上地十街10号
+  baidu:
+    ak: your-ak
+deepseek:
+  api:
+    token: ${deepseek.api.token}
