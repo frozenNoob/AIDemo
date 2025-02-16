@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Slf4j//日志记录
 @EnableCaching//开发缓存注解功能
 @EnableScheduling //开启任务调度
-public class SkyApplication {
+public class WbApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SkyApplication.class, args);
+        SpringApplication.run(WbApplication.class, args);
         log.info("server started");
     }
 }

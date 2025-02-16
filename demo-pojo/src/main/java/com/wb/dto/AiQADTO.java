@@ -14,8 +14,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 public class AiQADTO implements Serializable {
+    private long userId;
+    private String justTest;
     private Message[] messages;
-    private String model;
+    private String model;//Possible values: [deepseek-chat, deepseek-reasoner]
     private int frequency_penalty;
     private int max_tokens;
     private int presence_penalty;
