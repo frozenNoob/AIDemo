@@ -2,6 +2,8 @@ package com.wb.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,15 +15,24 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ApiModel(description = "用户询问AI相关的传递的数据模型")
 public class AiQADTO implements Serializable {
+    @ApiModelProperty("用户Id")
     private long userId;
+
     private String justTest;
+    @ApiModelProperty("发送过来的消息，包括其角色名和问题")
     private Message[] messages;
+    @ApiModelProperty("选择的模型")
     private String model;//Possible values: [deepseek-chat, deepseek-reasoner]
+    @ApiModelProperty("惩罚频率，一般为0")
     private int frequency_penalty;
+    @ApiModelProperty("最大token数（输入token+输出token）")
     private int max_tokens;
+
     private int presence_penalty;
     private ResponseFormat response_format;
+    @ApiModelProperty("是否选择流运输")
     private boolean stream;
     private double temperature;
     private double top_p;

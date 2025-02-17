@@ -15,9 +15,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
 public class AiQAVO {
+    //回复
     private String answer;
-    private int prompt_tokens;//输入token
-    private int completion_tokens;//输出token
+    //输入token
+    private int prompt_tokens;
+    //输出token
+    private int completion_tokens;
 
     public String toJson() {
         // Convert this object to JSON string using your preferred library
