@@ -44,24 +44,21 @@ logging:
 wb:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
+    admin-secret-key: wb1
     # 设置jwt过期时间
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
-    user-secret-key: itheima
+    user-secret-key: wb2
     user-ttl: 7200000
-    user-token-name: token
-  #    user-token-name: authentication
+#    user-token-name: token
+    user-token-name: authentication
   alioss:
     endpoint: ${wb.alioss.endpoint}
     access-key-id: ${wb.alioss.access-key-id}
     access-key-secret: ${wb.alioss.access-key-secret}
     bucket-name: ${wb.alioss.bucket-name}
-  shop:
-    address: 北京市海淀区上地十街10号
-  baidu:
-    ak: your-ak
+
 deepseek:
   api:
     token: ${deepseek.api.token}

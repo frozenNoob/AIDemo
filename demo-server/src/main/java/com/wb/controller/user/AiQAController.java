@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/aiqa")
+@RequestMapping("/user/api/aiqa")
 @Api(tags = "C端用户相关接口")
 public class AiQAController {
 
