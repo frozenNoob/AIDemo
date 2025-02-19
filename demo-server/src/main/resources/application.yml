@@ -44,15 +44,15 @@ logging:
 wb:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: wb1
+    admin-secret-key: ${wb.jwt.admin-secret-key}
     # 设置jwt过期时间
-    admin-ttl: 7200000
+    admin-ttl: ${wb.jwt.admin-ttl}
     # 设置前端传递过来的令牌名称
-    admin-token-name: token
-    user-secret-key: wb2
-    user-ttl: 7200000
-#    user-token-name: token
-    user-token-name: authentication
+    admin-token-name: ${wb.jwt.admin-token-name}
+    user-secret-key: ${wb.jwt.user-secret-key}
+    user-ttl: ${wb.jwt.user-ttl}
+    # user-token-name: token
+    user-token-name: ${wb.jwt.user-token-name} # 前端发送请求时需要使用这个作为请求头中的参数名而非token
   alioss:
     endpoint: ${wb.alioss.endpoint}
     access-key-id: ${wb.alioss.access-key-id}
