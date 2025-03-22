@@ -1,12 +1,12 @@
 package com.wb.service;
 
 import com.wb.dto.AiQADTO;
-import com.wb.vo.AiQAVO;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 public interface AiQAService {
 
     /*
     用户询问AI
      */
-    AiQAVO getChatResponse(AiQADTO request);
+    SseEmitter getChatResponse(AiQADTO request);
 }

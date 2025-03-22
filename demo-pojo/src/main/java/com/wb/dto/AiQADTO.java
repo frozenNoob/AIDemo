@@ -17,9 +17,6 @@ import java.io.Serializable;
 @Builder
 @ApiModel(description = "用户询问AI相关的传递的数据模型")
 public class AiQADTO implements Serializable {
-    @ApiModelProperty("用户Id")
-    private long userId;
-
     private String justTest;
     @ApiModelProperty("发送过来的消息，包括其角色名和问题")
     private Message[] messages;
