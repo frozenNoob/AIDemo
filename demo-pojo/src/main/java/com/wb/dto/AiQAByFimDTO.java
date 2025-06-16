@@ -11,27 +11,34 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+
+/**
+ * 与 AiQADTO的不同的地方在于 要应用的http请求的请求体不同（主要是prompt和suffix的变化)
+ */
 @Data //提供getter和setter函数
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ApiModel(description = "用户询问AI相关的传递的数据模型")
-public class AiQADTO implements Serializable {
+@ApiModel(description = "（FIM补全）用户询问AI相关的传递的数据模型")
+public class AiQAByFimDTO implements Serializable {
     private String justTest;
-    @ApiModelProperty("发送过来的消息，包括其角色名和问题")
-    private Message[] messages;
     @ApiModelProperty("选择的模型")
     private String model;//Possible values: [deepseek-chat, deepseek-reasoner]
+    @ApiModelProperty("询问用的提示词")
+    private String prompt;
+    @ApiModelProperty("在输出中是否把prompt的内容也输出出来")
+    private boolean echo=true;
     @ApiModelProperty("惩罚频率，一般为0")
     private int frequency_penalty;
     @ApiModelProperty("最大token数（输入token+输出token）")
     private int max_tokens;
-
     private int presence_penalty;
-    private ResponseFormat response_format;
 
     @ApiModelProperty("是否选择流运输")
     private boolean stream;
+    @ApiModelProperty("FIM补全中的后缀（可选）")
+    private String suffix="";
+
     private double temperature;
     private double top_p;
 
@@ -46,28 +53,5 @@ public class AiQADTO implements Serializable {
             e.printStackTrace();
             return null;
         }
-    }
-
-    // Inner class for messages
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    public static class Message  implements Serializable{
-        private String content;
-        private String role;
-
-        // Getters or toString(), if needed
-    }
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    // Inner class for response format
-    public static class ResponseFormat {
-        private String type;
-
-        // Getters or toString(), if needed
     }
 }

@@ -1,5 +1,6 @@
 package com.wb.controller.user;
 
+import com.wb.dto.AiQAByFimDTO;
 import com.wb.dto.AiQADTO;
 import com.wb.service.AiQAService;
 import io.swagger.annotations.Api;
@@ -20,8 +21,14 @@ public class AiQAController {
     private AiQAService aiQAService;
 
     @PostMapping("/chat")
-    @ApiOperation("用户询问AI：DeepSeek")
+    @ApiOperation("用户通过对话补全方式询问AI：DeepSeek")
     public SseEmitter getChatResponse(@RequestBody AiQADTO request) {
         return aiQAService.getChatResponse(request);
+    }
+
+    @PostMapping("/chatByFim")
+    @ApiOperation("用户通过Fim补全方式询问AI：DeepSeek")
+    public SseEmitter getChatResponseByFim(@RequestBody AiQAByFimDTO request) {
+        return aiQAService.getChatResponseByFim(request);
     }
 }
